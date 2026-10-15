@@ -1,0 +1,30 @@
+name: Autobump
+
+on:
+  schedule:
+    - cron: "3 2 * * *"
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  autobump:
+    name: Bump the cask
+    runs-on: ubuntu-26.04
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+      - id: git
+        uses: Homebrew/actions/git-user-config@e99025eb970cfa124b8284a35463d87426917478 # 2026.09.28.1
+        with:
+          username: github-actions[bot]
+      - env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOMEBREW_GIT_COMMITTER_NAME: ${{ steps.git.outputs.name }}
+          HOMEBREW_GIT_COMMITTER_EMAIL: ${{ steps.git.outputs.email }}
+          TAP_NAME: ${{ steps.set-up-homebrew.outputs.tap-name }}
+        run: brew bump --no-fork --open-pr --casks --tap="$TAP_NAME"
