@@ -1,8 +1,6 @@
 name: Autobump
 
 on:
-  schedule:
-    - cron: "3 2 * * *"
   workflow_dispatch:
 
 permissions: {}
@@ -10,7 +8,7 @@ permissions: {}
 jobs:
   autobump:
     name: Bump the cask
-    runs-on: ubuntu-26.04
+    runs-on: macos-26
     timeout-minutes: 15
     permissions:
       contents: write
