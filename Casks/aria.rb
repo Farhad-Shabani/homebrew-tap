@@ -2,7 +2,7 @@ cask "aria" do
   version "0.4.0"
   sha256 "4b0a9c500849a06ddaad686c27ffc9bcd08a5b97e2ab3b2b063bb98714de67ce"
 
-  url "https://github.com/Farhad-Shabani/aria/releases/download/v#{version}/aria-#{version}-macos-arm64.dmg"
+  url "https://github.com/Farhad-Shabani/aria/releases/download/v#{version}/Aria.dmg"
   name "Aria"
   desc "Local voice assistant for dictation, speech, and AI agents"
   homepage "https://github.com/Farhad-Shabani/aria"
