@@ -1,6 +1,6 @@
 cask "aria" do
-  version "0.7.0"
-  sha256 "6ddce190d8ad9d1767e2fc819b80cb9c6756a54104f5a3e2f5db23bccfecd039"
+  version "0.8.0"
+  sha256 "8c9f1595b334cf5f9773c271f20374aeda311e12ce9ebe43fb8a5c3c09617c90"
 
   url "https://github.com/Farhad-Shabani/aria/releases/download/v#{version}/Aria.dmg"
   name "Aria"
